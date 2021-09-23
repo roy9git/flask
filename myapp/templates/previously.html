@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    .content {
+      max-width: 200px;
+      margin: auto;
+    }
+  </style>
+  <title>Previous Tasks</title>
+</head>
+
+<body>
+  <h1>Here are your tasks</h1>
+  <div class ='content'>
+    <a href="/Loggedin"><button type="button" class="btn btn-dark">Goback to login page</button></a>
+</div>
+    <!-- Optional JavaScript; choose one of the two! -->
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>date</th>
+            <th>Task-No</th>
+            <th>Start-Time</th>
+            <th>End-Time</th>
+            <th>Task-Name</th>
+            <th>Reminder</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for key1, value1 in output_data.items() %}
+            <tr>
+                {% for key2, value2 in value1.items() %}
+                <tr>
+                <td>{{ key1 }}</td>
+                <td>{{ key2 }}</td>
+                <td>{{ value2['starttime']}}</td>
+                <td>{{ value2['endtime'] }}</td>
+                <td>{{ value2['taskname'] }}</td>
+                <td>{{ value2['reminder']}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
